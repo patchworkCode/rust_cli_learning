@@ -1,0 +1,5 @@
+this is a
+multi-lined
+test document
+for cli reading
+and testing
