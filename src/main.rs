@@ -51,22 +51,22 @@ fn main() {
 
     let input = args.value_of("input").unwrap();
     
-    let matching_lines;
+    let matched_lines;
     if input == "-" {
         let stdin = io::stdin();
         let reader = stdin.lock();
-        matching_lines = process_input_arg(reader, re);
+        matched_lines = process_input_arg(reader, re);
     }
     else {
         let f = File::open(Path::new(input)).unwrap();
         let reader = BufReader::new(f);
-        matching_lines = process_input_arg(reader, re);
+        matched_lines = process_input_arg(reader, re);
     }
 
-    match matching_lines {
+    match matched_lines {
         Some(_) => {
             println!("The following line(s) match the pattern:");
-            for tuple in matching_lines.unwrap() {
+            for tuple in matched_lines.unwrap() {
                 println!("{:?}: {:?}", tuple.0, tuple.1)
             }
         },
